@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://beny5gbiu54xx"]
+[gd_scene load_steps=3 format=3 uid="uid://beny5gbiu54xx"]
 
 [ext_resource type="Script" uid="uid://565vfhpu2tri" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://cge3u5u1lg8kj" path="res://Scenes/screen_list.gd" id="2_bo1nx"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -47,14 +48,27 @@ offset_top = -0.120003
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Screen_List" type="ColorRect" parent="TabContainer"]
+[node name="Screen_List" type="Panel" parent="TabContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.163156, 0.204862, 1)
+script = ExtResource("2_bo1nx")
+
+[node name="ScrollList" type="ScrollContainer" parent="TabContainer/Screen_List"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MusicList" type="VBoxContainer" parent="TabContainer/Screen_List/ScrollList"]
+layout_mode = 2
 
 [node name="Screen_Playlists" type="ColorRect" parent="TabContainer"]
 visible = false
